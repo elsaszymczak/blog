@@ -10,4 +10,21 @@
   <p class="body">
     <%= @post.body %>
   </p>
+
+
+<h3><%= @post.comments.count %>comments</h3>
+<div class="comment clearfix">
+  <div class="comment_content">
+    <% @post.comments.each do |comment| %>
+      <p class="comment_name"><%= comment.name %></p>
+      <p class="comment_body"><%= comment.body %></p>
+      <p class="comment_time"><%= comment.created_at %></p>
+      <%= link_to "delete", post_comment_path(@post, comment), method: :delete, class: "button", data: {confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</div>
+
+  <div id="main_content">
+    <%= render 'comments/form' %>
+  </div>
 </div>
