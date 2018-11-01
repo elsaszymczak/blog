@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'pages/about'
   # get 'comments/new'
   # get 'comments/create'
   # get 'comments/edit'
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
   root "posts#index"
+  get '/about', to: 'pages#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

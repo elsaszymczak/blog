@@ -1,6 +1,12 @@
 <div id="main_content">
   <div id="header">
-    <p>All posts</p>
+    <% if current_page?(root_path) %>
+      <p>All posts</p>
+    <% elsif current_page?(about_path) %>
+      <p>About</p>
+    <% else %>
+      <p><%= link_to 'Back to all posts', root_path %> </p>
+    <% end %>
     <div class="buttons">
       <button class="button"> <%= link_to "New post", new_post_path %> </button>
       <button class="button">Log out</button>
